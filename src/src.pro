@@ -13,7 +13,13 @@ CONFIG += staticlib
 include(../RTKLib.pri)
 
 QMAKE_CFLAGS += -Wall -ansi -pedantic -Wno-unused-but-set-variable  -DTRACE -g
+QMAKE_CFLAGS += -Wno-missing-field-initializers -Wno-unused-variable -Wno-unused-parameter
+QMAKE_CXXFLAGS += -Wno-missing-field-initializers -Wno-unused-variable -Wno-unused-parameter
 DEFINES -= UNICODE
+
+win32 {
+	DEFINES += ENVIRONMENT64
+}
 
 SOURCES += rtkcmn.c \
     convkml.c \

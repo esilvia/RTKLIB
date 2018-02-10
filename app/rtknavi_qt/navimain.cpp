@@ -1090,9 +1090,10 @@ void  MainWindow::SvrStart(void)
     strsetopt(stropt);
     
     // start rtk server
+    char emsg[256];
     if (!rtksvrstart(&rtksvr,SvrCycle,SvrBuffSize,strs,paths,Format,NavSelect,
-                     cmds,rcvopts,NmeaCycle,NmeaReq,nmeapos,&PrcOpt,solopt,
-                     &monistr)) {
+                     cmds,cmds,rcvopts,NmeaCycle,NmeaReq,nmeapos,&PrcOpt,solopt,
+                     &monistr,emsg)) {
         traceclose();
         for (i=0;i<8;i++) delete[] paths[i];
         for (i=0;i<3;i++) delete[] rcvopts[i];

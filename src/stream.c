@@ -537,9 +537,9 @@ static int statexserial(serial_t *serial, char *msg)
     
     p+=sprintf(p,"serial:\n");
     p+=sprintf(p,"  state   = %d\n",state);
-    if (!state) return 0;
-    p+=sprintf(p,"  dev     = %d\n",(int)serial->dev);
-    p+=sprintf(p,"  error   = %d\n",serial->error);
+	if (!state) return 0;
+	p+=sprintf(p,"  dev     = %d\n",(int)serial->dev);
+	p+=sprintf(p,"  error   = %d\n",serial->error);
 #ifdef WIN32
     p+=sprintf(p,"  buffsize= %d\n",serial->buffsize);
     p+=sprintf(p,"  wp      = %d\n",serial->wp);

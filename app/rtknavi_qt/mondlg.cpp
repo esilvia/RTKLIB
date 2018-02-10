@@ -360,7 +360,11 @@ void MonitorDialog::ShowRtk(void)
     double *del,*off1,*off2,rt[3]={0},dop[4]={0};
 	double azel[MAXSAT*2],pos[3],vel[3];
     int i,j,k,cycle,state,rtkstat,nsat0,nsat1,prcout,nave;
-    unsigned long thread;
+#ifdef ENVIRONMENT64
+	quint64 thread;
+#else
+	quint32 thread;
+#endif
 	int cputime,nb[3]={0},nmsg[3][10]={{0}},ne;
     char tstr[64],id[32],s1[64]="-",s2[64]="-",s3[64]="-";
 	char file[1024]="";
@@ -371,7 +375,11 @@ void MonitorDialog::ShowRtk(void)
 	rtksvrlock(&rtksvr); // lock
 	
 	rtk=rtksvr.rtk;
-    thread=(unsigned long)rtksvr.thread;
+#ifdef ENVIRONMENT64
+	thread=(quint64)rtksvr.thread;
+#else
+	thread=(quint32)rtksvr.thread;
+#endif
 	cycle=rtksvr.cycle;
 	state=rtksvr.state;
 	rtkstat=rtksvr.rtk.sol.stat;
