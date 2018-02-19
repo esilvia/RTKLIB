@@ -28,8 +28,8 @@ linux{
     LIBS += -lpng $${RTKLIB}
 }
 win32 {
-	DEFINES += ENVIRONMENT64
-	CONFIG(debug) {
+    DEFINES += ENVIRONMENT64
+    CONFIG(debug, debug|release) {
         RTKLIB = ../../src/debug/libRTKLib.a
     } else {
         RTKLIB =../../src/release/libRTKLib.a

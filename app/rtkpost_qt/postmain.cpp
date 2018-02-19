@@ -446,7 +446,11 @@ void MainForm::BtnPlotClick()
 //    QString cmd1="rtkplot_qt",cmd2="../../../bin/rtkplot_qt";
 
     QString cmd1="rtkplot_qt";
-    QString cmd2=QDir(qApp->applicationDirPath()).absoluteFilePath("../../rtkplot_qt/debug/rtkplot_qt"); //FIXME: temp for debug
+#ifdef DEBUMODE
+    QString cmd2=QDir(qApp->applicationDirPath()).absoluteFilePath("../../rtkplot_qt/debug/rtkplot_qt");
+#else
+    QString cmd2=QDir(qApp->applicationDirPath()).absoluteFilePath("../../rtkplot_qt/release/rtkplot_qt");
+#endif
     QStringList opts;
 
     opts << file;

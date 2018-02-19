@@ -22,7 +22,7 @@ linux{
     LIBS += -lpng $${RTKLIB}
 }
 win32 {
-    CONFIG(debug) {
+    CONFIG(debug, debug|release) {
         RTKLIB = ../../src/debug/libRTKLib.a
     } else {
         RTKLIB =../../src/release/libRTKLib.a

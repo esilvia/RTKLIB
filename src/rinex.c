@@ -1652,7 +1652,7 @@ extern int readrnxc(const char *file, nav_t *nav)
             continue;
         }
         stat=0;
-        break;
+        break;  /*BUG: this exits prematurely if the CLK file isn't the first file in a wildcard group*/
     }
     for (i=0;i<MAXEXFILE;i++) free(files[i]);
     
